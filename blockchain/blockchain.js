@@ -1,4 +1,3 @@
-const { Console } = require('console');
 const Block = require('./block');
 
 class Blockchain{
