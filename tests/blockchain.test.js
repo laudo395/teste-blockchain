@@ -1,6 +1,7 @@
 const { beforeEach, it, expect } = require('@jest/globals');
 const Blockchain = require('../blockchain');
 const Block = require('../block');
+const exp = require('constants');
 
 
 describe('Blockchain', () => {
@@ -37,5 +38,19 @@ describe('Blockchain', () => {
 
         expect(bc.isValidChain(bc2.chain)).toBe(false);
     });
+
+    it('replaces the chain with a valid chain', () => {
+        bc2.addBlock('600U$');
+        bc.replaceChain(bc2.chain);
+
+        expect(bc.chain).toEqual(bc2.chain);
+    })
+
+    it('does not replace the chain with one of less or equll length', () => {
+        bc.addBlock('200U$');
+        bc.replaceChain(bc2.chain);
+
+        expect(bc.chain).not.toEqual(bc2.chain);
+    })
 
 });

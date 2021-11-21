@@ -1,3 +1,4 @@
+const { Console } = require('console');
 const Block = require('./block');
 
 class Blockchain{
@@ -24,6 +25,19 @@ class Blockchain{
         }
 
         return true;
+    }
+
+    replaceChain(newChain){
+        if(newChain.length <= this.chain.length){
+            console.log('Receive chain is not longer than the current chain');
+            return;
+        } else if(!this.isValidChain(newChain)){
+            console.log('The receive chain is not valid')
+            return;
+        }
+        console.log('Replacing blockchain with the new chain');
+        this.chain = newChain;
+        
     }
 
 }
