@@ -16,7 +16,6 @@ app.get('/blocks', (req, res) => {
 
 app.post('/miner', (req, res) => {
     const block = bc.addBlock(req.body.data);
-    console.log(req.data)
     console.log(`Ǹew Block added: ${block.toString()}`)
 
     p2pServer.syncChain();
