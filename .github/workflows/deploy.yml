@@ -16,6 +16,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           #password: ''
+          port: 22
      
           script: |
             cd app/teste-blockchain
