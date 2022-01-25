@@ -17,18 +17,14 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install PM2
       run: |
-        ls -lah 
         npm i pm2 -g
 
     - name: deploy app
       run: |
-
-        ls -lah 
-        
         mkdir -p ~/.ssh/
         echo "$SSH_KEY" > ./deploy.key
         sudo chmod 600 ./deploy.key
-        
-        ls -lah
+
+        cat ./deploy.key
         
         pm2 deploy app
