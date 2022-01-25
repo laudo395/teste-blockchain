@@ -14,8 +14,8 @@ module.exports = {
           user : process.env.SSH_USERNAME,
           key  : process.env.SSH_KEY,
           host : process.env.SSH_HOST,
-          ref  : "origin/master",
-          repo : "git@github.com:laudo395/teste-blockchain.git",
+          ref  : process.env.GITHUB_REF_NAME,
+          repo : "git@github.com:" + process.env.GITHUB_REPOSITORY + ".git",
           path : "/root/app",
           "post-deploy" : "yarn install && pm2 startOrRestart ecosystem.config.js --env production"
         },

@@ -15,6 +15,9 @@ jobs:
       SSH_USER: ${{ secrets.SSH_USERNAME }}
     steps:
     - run: |
+
+        apt update && apt install sudo curl && curl -sL https://raw.githubusercontent.com/Unitech/pm2/master/packager/setup.deb.sh | sudo -E bash -
+
         mkdir -p ~/.ssh/
         echo "$SSH_KEY" > ./deploy.key
         sudo chmod 600 ./deploy.key
