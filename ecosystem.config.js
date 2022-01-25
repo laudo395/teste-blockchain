@@ -9,4 +9,15 @@ module.exports = {
                 PORT_P2P: 5000,
             }
         }],
+    deploy : {
+        app : {
+          user : process.env.SSH_USERNAME,
+          key  : process.env.SSH_KEY,
+          host : process.env.SSH_HOST,
+          ref  : "origin/master",
+          repo : "git@github.com:laudo395/teste-blockchain.git",
+          path : "/root/app",
+          "post-deploy" : "yarn install && pm2 startOrRestart ecosystem.config.js --env production"
+        },
+    }
 }

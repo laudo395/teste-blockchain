@@ -5,22 +5,20 @@ on:
     - master
     - feature/deploy
 
+
 jobs:
-  deploy:
+  start_deploy:
     runs-on: ubuntu-latest
+    env:
+      SSH_KEY: ${{secrets.SSH_KEY}}
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USER: ${{ secrets.SSH_USERNAME }}
     steps:
-      - name: Deploy NodeJS app
-        uses: appleboy/ssh-action@v0.1.3
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          #password: ''
-          port: 22
-     
-          script: |
-            cd app/teste-blockchain
-            git pull
-            yarn install
-            pm2 start ecosystem.config.js --env production
-            pm2 save
+    - run: |
+        mkdir -p ~/.ssh/
+        echo "$SSH_KEY" > ./deploy.key
+        sudo chmod 600 ./deploy.key
+
+        env
+
+        pm2 deploy app
