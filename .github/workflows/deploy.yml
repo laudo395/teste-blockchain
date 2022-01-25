@@ -23,5 +23,7 @@ jobs:
         mkdir -p ~/.ssh/
         echo "$SSH_KEY" > ./deploy.key
         sudo chmod 600 ./deploy.key
-
+        
+        ls -lah
+        
         pm2 deploy app
