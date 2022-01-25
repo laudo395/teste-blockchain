@@ -14,9 +14,11 @@ jobs:
       SSH_HOST: ${{ secrets.SSH_HOST }}
       SSH_USER: ${{ secrets.SSH_USERNAME }}
     steps:
-    - run: |
+    - name: Install PM2
+      run: npm i pm2
 
-        sudo apt-get update && sudo apt-get install curl && curl -sL https://raw.githubusercontent.com/Unitech/pm2/master/packager/setup.deb.sh | sudo -E bash -
+    - name: deploy app
+      run: 
 
         mkdir -p ~/.ssh/
         echo "$SSH_KEY" > ./deploy.key
