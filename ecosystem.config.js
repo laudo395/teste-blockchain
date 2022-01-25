@@ -12,7 +12,7 @@ module.exports = {
     deploy : {
         app : {
           user : process.env.SSH_USERNAME,
-          key  : process.env.SSH_KEY,
+          key  : "deploy.key",
           host : process.env.SSH_HOST,
           ref  : process.env.GITHUB_REF_NAME,
           repo : "git@github.com:" + process.env.GITHUB_REPOSITORY + ".git",
