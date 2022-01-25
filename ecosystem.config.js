@@ -11,11 +11,11 @@ module.exports = {
         }],
     deploy : {
         app : {
-          user : "REP_SSH_USER",
+          user : process.env.SSH_USER,
           key  : "deploy.key",
-          host : "REP_SSH_HOST",
-          ref  : "REP_GITHUB_REF_NAME",
-          repo : "git@github.com:REP_GITHUB_REPOSITORY.git",
+          host : process.env.SSH_HOST,
+          ref  : process.env.GITHUB_REF_NAME,
+          repo : "git@github.com:" + process.env.GITHUB_REPOSITORY + ".git",
           path : "/root/app",
           "post-deploy" : "yarn install && pm2 startOrRestart ecosystem.config.js --env production"
         },
