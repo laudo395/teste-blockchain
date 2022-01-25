@@ -36,4 +36,4 @@ jobs:
 
         cat ecosystem.config.js
 
-        pm2 deploy app
+        pm2 deploy app --force
