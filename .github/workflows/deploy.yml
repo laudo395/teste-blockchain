@@ -21,9 +21,9 @@ jobs:
 
     - name: deploy app
       run: |
-        mkdir -p ~/.ssh/
-        echo "$SSH_KEY" > ./deploy.key
-        sudo chmod 600 ./deploy.key
+        #mkdir -p ~/.ssh/
+        #echo "$SSH_KEY" > ./deploy.key
+        #sudo chmod 600 ./deploy.key
         sudo chmod 600 key
 
         #sed -i "s|REP_SSH_USER|$SSH_USER|g" ecosystem.config.js
