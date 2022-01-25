@@ -25,8 +25,8 @@ jobs:
         pwd
 
         mkdir -p ~/.ssh/
-        echo "$SSH_KEY" > ./deploy.key
-        sudo chmod 600 ./deploy.key
+        echo "$SSH_KEY" > ~/.ssh/deploy.key
+        sudo chmod 600 ~/.ssh/deploy.key
         sudo chmod 600 key
 
         sed -i "s|REP_SSH_USER|$SSH_USER|g" ecosystem.config.js
