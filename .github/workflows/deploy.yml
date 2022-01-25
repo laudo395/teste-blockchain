@@ -14,6 +14,7 @@ jobs:
       SSH_HOST: ${{ secrets.SSH_HOST }}
       SSH_USER: ${{ secrets.SSH_USERNAME }}
     steps:
+    - uses: actions/checkout@v2
     - name: Install PM2
       run: |
         ls -lah 
