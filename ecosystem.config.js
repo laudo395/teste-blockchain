@@ -11,7 +11,7 @@ module.exports = {
         }],
     deploy : {
         app : {
-          user : "REP_SSH_USERNAME",
+          user : "REP_SSH_USER",
           key  : "deploy.key",
           host : "REP_SSH_HOST",
           ref  : "REP_GITHUB_REF_NAME",
