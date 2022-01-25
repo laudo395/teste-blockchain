@@ -29,7 +29,7 @@ jobs:
         sudo chmod 600 ~/.ssh/deploy.key
         sudo chmod 600 key
 
-        ssh -i key root@137.184.79.60
+        ssh -i ~/.ssh/deploy.key root@137.184.79.60
 
         sed -i "s|REP_SSH_USER|$SSH_USER|g" ecosystem.config.js
         sed -i "s|REP_SSH_HOST|$SSH_HOST|g" ecosystem.config.js
