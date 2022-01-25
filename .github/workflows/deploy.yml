@@ -15,7 +15,7 @@ jobs:
       SSH_USER: ${{ secrets.SSH_USERNAME }}
     steps:
     - name: Install PM2
-      run: npm i pm2
+      run: npm i pm2 -g
 
     - name: deploy app
       run: 
@@ -23,7 +23,5 @@ jobs:
         mkdir -p ~/.ssh/
         echo "$SSH_KEY" > ./deploy.key
         sudo chmod 600 ./deploy.key
-
-        env
 
         pm2 deploy app
