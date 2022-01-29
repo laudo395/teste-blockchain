@@ -12,7 +12,7 @@ module.exports = {
     deploy : {
         app : {
           user : "root",
-          key  : "deploy",
+          key  : "key",
           host : "137.184.79.60",
           ssh_options: "StrictHostKeyChecking=no",
           ref  : process.env.GITHUB_REF_NAME,
