@@ -11,9 +11,9 @@ module.exports = {
         }],
     deploy : {
         app : {
-          user : "root",
-          key  : "key",
-          host : "137.184.79.60",
+          user : process.env.SSH_USER,
+          key  : process.env.SSH_KEY,
+          host : process.env.SSH_HOST,
           ssh_options: "StrictHostKeyChecking=no",
           ref  : process.env.GITHUB_REF_NAME,
           repo : "git@github.com:" + process.env.GITHUB_REPOSITORY + ".git",

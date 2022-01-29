@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SSH_KEY: ${{secrets.SSH_KEY}}
-      #SSH_HOST: ${{ secrets.SSH_HOST }}
-      #SSH_USER: ${{ secrets.SSH_USERNAME }}
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USER: ${{ secrets.SSH_USERNAME }}
     steps:
     - uses: actions/checkout@v2
     - name: Install PM2
