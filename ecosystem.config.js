@@ -15,7 +15,7 @@ module.exports = {
           key  : "~/.ssh/deploy.key",
           host : "137.184.79.60",
           ssh_options: "StrictHostKeyChecking=no",
-          ref  : "origin/staging",
+          ref  : "origin/" + process.env.GITHUB_REF_NAME,
           repo : "git@github.com:" + process.env.GITHUB_REPOSITORY + ".git",
           path : "/root/app",
           "post-deploy" : "yarn install && pm2 startOrRestart ecosystem.config.js --env production"
