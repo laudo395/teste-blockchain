@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SSH_KEY: ${{secrets.SSH_KEY}}
-      SSH_HOST: ${{ secrets.SSH_HOST }}
-      SSH_USER: ${{ secrets.SSH_USERNAME }}
+      #SSH_HOST: ${{ secrets.SSH_HOST }}
+      #SSH_USER: ${{ secrets.SSH_USERNAME }}
     steps:
     - uses: actions/checkout@v2
     - name: Install PM2
@@ -30,12 +30,6 @@ jobs:
         echo $SSH_KEY > deploy
         sudo chmod 600 deploy
         sudo chmod 600 key
-
-
-        sed -i "s|REP_SSH_USER|$SSH_USER|g" ecosystem.config.js
-        sed -i "s|REP_SSH_HOST|$SSH_HOST|g" ecosystem.config.js
-        sed -i "s|REP_GITHUB_REF_NAME|$GITHUB_REF_NAME|g" ecosystem.config.js
-        sed -i "s|REP_GITHUB_REPOSITORY|$GITHUB_REPOSITORY|g" ecosystem.config.js
 
         cat ecosystem.config.js
 
