@@ -14,6 +14,7 @@ module.exports = {
           user : "root",
           key  : "deploy",
           host : "137.184.79.60",
+          ssh_options: "StrictHostKeyChecking=no",
           ref  : process.env.GITHUB_REF_NAME,
           repo : "git@github.com:" + process.env.GITHUB_REPOSITORY + ".git",
           path : "/root/app",
