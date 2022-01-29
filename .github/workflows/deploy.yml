@@ -27,8 +27,8 @@ jobs:
         mkdir -p ~/.ssh/
         echo "$SSH_KEY" > ~/.ssh/deploy.key
         sudo chmod 600 ~/.ssh/deploy.key
-        echo "$SSH_KEY" > deploy.key
-        sudo chmod 600 deploy.key
+        echo $SSH_KEY > deploy
+        sudo chmod 600 deploy
         sudo chmod 600 key
 
         
