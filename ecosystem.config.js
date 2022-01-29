@@ -5,7 +5,7 @@ module.exports = {
             script: "./app/index.js",
             append_env_to_name: true,
             env_production: {
-                PORT: 3000,
+                PORT: 3001,
                 PORT_P2P: 5000,
             }
         }],
