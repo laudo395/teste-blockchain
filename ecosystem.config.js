@@ -12,7 +12,7 @@ module.exports = {
     deploy : {
         app : {
           user : "root",
-          key  : "deploy",
+          key  : "~/.ssh/deploy.key",
           host : "137.184.79.60",
           ssh_options: "StrictHostKeyChecking=no",
           ref  : "origin/staging",
